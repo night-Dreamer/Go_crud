@@ -1,0 +1,56 @@
+{{define "lyout"}}
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/jumbotron-narrow/">
+
+    <title>Curd</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://fastly.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.30/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://fastly.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.30/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fastly.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.30/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="http://localhost:8080/index">Index</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation" class="active"><a href="http://localhost:8080/add">添加</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Go curd</h3>
+      </div>
+
+      <div class="row marketing">
+        {{ block "content" . }}
+          <h1>template not found!</h1>
+        {{ end }}
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2021 Company, Wangzhen.</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>
+{{end}}
