@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -10,6 +9,7 @@ import (
 	_ "github.com/lib/pq"
 	"github.com/solenovex/web-tuborial/common"
 	"github.com/solenovex/web-tuborial/controller"
+	"github.com/solenovex/web-tuborial/middleware"
 )
 
 const (
@@ -30,8 +30,9 @@ func init() {
 		fmt.Println(err)
 	}
 
-	ctx := context.Background()
-	err = common.Db.PingContext(ctx)
+	//ctx := context.Background()
+	//err = common.Db.PingContext(ctx)
+	err = common.Db.Ping()
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -41,9 +42,8 @@ func init() {
 func main() {
 	server := http.Server{
 		Addr:    ":8080",
-		Handler: nil,
+		Handler: new(middleware.AuthMiddleware),
 	}
 	controller.RegisterRoutes()
 	server.ListenAndServe()
-
 }
